@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power BI Chain | Wyler in Uni</title>
+    <title>PowerBI Chain | Wyler in Uni</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -47,20 +47,29 @@
             50% { transform: translateY(-20px) rotate(2deg); }
         }
 
-        .session-indicator {
-            position: relative;
-        }
-        
-        .session-indicator::before {
-            content: '';
+        /* Roadmap Timeline Styles */
+        .roadmap-line {
             position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: #F2C811;
-            border-radius: 2px;
-            box-shadow: 0 0 15px rgba(242, 200, 17, 0.5);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 94%;
+            background: linear-gradient(to bottom, #F2C811, transparent);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .roadmap-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            background: #0b0f1a;
+            border: 3px solid #F2C811;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 10px #F2C811;
         }
 
         /* Avatar Glow Effect */
@@ -93,6 +102,13 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        @media (max-width: 768px) {
+            .roadmap-line, .roadmap-dot {
+                left: 20px;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body class="selection:bg-pb-yellow selection:text-black">
@@ -103,22 +119,22 @@
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3">
                     <img src="Wyler_logo_no_background.png" alt="Wyler Logo" class="h-12 w-auto">
-                    <span class="font-extrabold text-xl hidden md:block">Power BI <span class="pb-yellow">Chain</span></span>
+                    <span class="font-extrabold text-xl hidden md:block">PowerBI <span class="pb-yellow">Chain</span></span>
                 </div>
                 <div class="hidden lg:flex space-x-10 text-sm font-semibold uppercase tracking-wider">
-                    <a href="#syllabus" class="hover:text-pb-yellow transition-colors">Lộ trình</a>
+                    <a href="#syllabus" class="hover:text-pb-yellow transition-colors">Syllabus</a>
                     <a href="#sharers" class="hover:text-pb-yellow transition-colors">Sharers</a>
-                    <a href="#about" class="hover:text-pb-yellow transition-colors">Ưu điểm</a>
+                    <a href="#about" class="hover:text-pb-yellow transition-colors">About</a>
                 </div>
                 <a href="https://forms.gle/mCUtToL1zLwbrPai6" target="_blank" class="bg-pb-yellow text-black px-6 py-2.5 rounded-xl font-bold text-sm hover:scale-105 transition transform shadow-[0_0_20px_rgba(242,200,17,0.3)]">
-                    ĐĂNG KÝ HỌC
+                    REGISTER NOW
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+    <!-- Hero Section -->
+    <section id="about" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-pb-yellow/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
@@ -128,21 +144,17 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pb-yellow opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-pb-yellow"></span>
                     </span>
-                    By Wyler in Uni
+                    Online Course by Wyler in Uni
                 </div>
                 <h1 class="text-6xl md:text-8xl font-black leading-[1.1]">
-                    Power BI <br>
-                    <span class="gradient-text">Chain Course</span>
+                    <span class="gradient-text">Power BI Chain</span>
                 </h1>
                 <p class="text-xl text-slate-400 max-w-xl leading-relaxed">
-                    Khóa học thực chiến giúp bạn làm chủ công cụ phân tích dữ liệu hàng đầu thế giới. Từ số liệu thô đến Dashboard triệu đô chỉ trong 8+1 buổi.
+                    Unlock the power of Business Intelligence through an intensive 8+1 session roadmap. Turn raw data into vivid stories and practical insights.
                 </p>
                 <div class="flex flex-wrap gap-5">
                     <a href="https://forms.gle/mCUtToL1zLwbrPai6" target="_blank" class="px-10 py-5 bg-pb-yellow text-black rounded-2xl font-black text-lg hover:shadow-[0_0_30px_rgba(242,200,17,0.4)] transition-all flex items-center gap-3">
-                        Ghi danh ngay <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#syllabus" class="px-10 py-5 bg-white/5 border border-white/10 rounded-2xl font-bold text-lg hover:bg-white/10 transition">
-                        Xem lộ trình
+                        Join Now <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -157,184 +169,289 @@
         </div>
     </section>
 
-    <!-- Syllabus -->
-    <section id="syllabus" class="py-32 bg-[#0b0f1a]">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-4xl md:text-5xl font-black mb-6">Lộ trình học <span class="pb-yellow">8 + 1</span></h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Thiết kế tinh gọn, tập trung vào thực hành để bạn có thể xây dựng Project showcase ngay sau khóa học.</p>
-                <a href="https://drive.google.com/file/d/1-jHxR5r1_oChsknRqOU51dLUGZVQJirB/view?usp=sharing" target="_blank" class="mt-8 inline-block px-6 py-2 border border-pb-yellow/30 rounded-full text-sm font-bold text-pb-yellow hover:bg-pb-yellow hover:text-black transition">
-                    <i class="fas fa-file-pdf mr-2"></i> Tải Syllabus (Google Drive)
-                </a>
+    <!-- Syllabus Roadmap -->
+    <section id="syllabus" class="py-32 bg-[#0b0f1a] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 relative">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter">8 + 1 Session <span class="pb-yellow">Syllabus</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg">A comprehensive curriculum designed to take you from zero to Power BI hero.</p>
             </div>
 
-            <div class="space-y-4">
-                <div class="reveal glass-card p-6 rounded-2xl flex items-center gap-6 session-indicator">
-                    <div class="text-3xl font-black text-pb-yellow w-12 text-center">00</div>
-                    <div>
-                        <h4 class="text-lg font-bold">Introduction & Setup</h4>
-                        <p class="text-slate-500 text-sm">Giới thiệu hệ sinh thái Power BI & Cài đặt môi trường làm việc.</p>
-                    </div>
-                </div>
+            <div class="relative">
+                <!-- Center Line (Desktop) -->
+                <div class="roadmap-line hidden md:block"></div>
 
-                <div class="grid gap-4">
-                    <!-- Session 1-8 logic -->
-                    <div class="reveal glass-card p-6 rounded-2xl flex items-center gap-6">
-                        <div class="text-2xl font-black text-white/20 w-12 text-center">01</div>
-                        <div>
-                            <h4 class="font-bold">Get Data & Clean</h4>
-                            <p class="text-slate-500 text-sm">Kết nối đa nguồn dữ liệu & Power Query cơ bản.</p>
+                <div class="space-y-24 relative">
+                    <!-- Session 00: Cozy Welcoming -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                        <div class="md:w-1/2 md:pr-16 md:text-right order-2 md:order-1">
+                            <h4 class="text-2xl font-bold mb-3 uppercase tracking-wider">Session 0: Cozy Welcoming</h4>
+                            <ul class="text-slate-400 space-y-1 text-sm md:text-base">
+                                <li>• Getting to know our participants and sharers</li>
+                                <li>• Expectation Setting & Workflow Mindset</li>
+                                <li>• Q&A session and Final Project announcement</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-dot hidden md:block order-1"></div>
+                        <div class="md:w-1/2 md:pl-16 order-3">
+                            <div class="glass-card p-6 rounded-2xl inline-flex items-center gap-4 border-l-4 border-pb-yellow">
+                                <div class="w-12 h-12 bg-pb-yellow/20 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-mug-hot text-pb-yellow text-xl"></i>
+                                </div>
+                                <span class="font-black text-3xl opacity-20">00</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="reveal glass-card p-6 rounded-2xl flex items-center gap-6">
-                        <div class="text-2xl font-black text-white/20 w-12 text-center">02</div>
-                        <div>
-                            <h4 class="font-bold">Data Modeling Mastery</h4>
-                            <p class="text-slate-500 text-sm">Xây dựng Relationship, hiểu về Star Schema.</p>
+
+                    <!-- Session 01: Power Query -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                        <div class="md:w-1/2 md:pr-16 md:text-right hidden md:block">
+                            <div class="glass-card p-6 rounded-2xl inline-flex items-center gap-4 border-r-4 border-white/10">
+                                <span class="font-black text-3xl opacity-20">01</span>
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-filter text-white text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="roadmap-dot hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <h4 class="text-2xl font-bold mb-3 uppercase tracking-wider">Session 1: Intro to Power BI & Power Query</h4>
+                            <ul class="text-slate-400 space-y-1 text-sm md:text-base">
+                                <li>• Introduction to Power BI user interface</li>
+                                <li>• Using Power Query to “pull” data into Power BI</li>
+                                <li>• Practical ETL: Extract, Transform, and Load data</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="reveal glass-card p-6 rounded-2xl flex items-center gap-6">
-                        <div class="text-2xl font-black text-white/20 w-12 text-center">03-04</div>
-                        <div>
-                            <h4 class="font-bold">DAX Fundamentals</h4>
-                            <p class="text-slate-500 text-sm">Làm chủ các hàm tính toán: SUM, CALCULATE, FILTER...</p>
+
+                    <!-- Session 02: Data Model -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                        <div class="md:w-1/2 md:pr-16 md:text-right">
+                            <h4 class="text-2xl font-bold mb-3 uppercase tracking-wider">Session 2: Data Model, Fact & Dim Tables</h4>
+                            <ul class="text-slate-400 space-y-1 text-sm md:text-base">
+                                <li>• Why separate a big table into smaller ones?</li>
+                                <li>• Intro to Data Model, Factual & Dimension tables</li>
+                                <li>• Building relationships using PK & FK keys</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-dot hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <div class="glass-card p-6 rounded-2xl inline-flex items-center gap-4 border-l-4 border-white/10">
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-project-diagram text-white text-xl"></i>
+                                </div>
+                                <span class="font-black text-3xl opacity-20">02</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="reveal glass-card p-6 rounded-2xl flex items-center gap-6">
-                        <div class="text-2xl font-black text-white/20 w-12 text-center">05-06</div>
-                        <div>
-                            <h4 class="font-bold">Data Visualization Principles</h4>
-                            <p class="text-slate-500 text-sm">Tư duy chọn biểu đồ & Kể chuyện qua dữ liệu (Storytelling).</p>
+
+                    <!-- Session 03: Visualization & DAX -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                        <div class="md:w-1/2 md:pr-16 md:text-right hidden md:block">
+                            <div class="glass-card p-6 rounded-2xl inline-flex items-center gap-4 border-r-4 border-white/10">
+                                <span class="font-black text-3xl opacity-20">03</span>
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="roadmap-dot hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <h4 class="text-2xl font-bold mb-3 uppercase tracking-wider">Session 3: Visualization & DAX Intro</h4>
+                            <ul class="text-slate-400 space-y-1 text-sm md:text-base">
+                                <li>• Visualizing Trends, Performance & Contribution</li>
+                                <li>• DAX Intro: SUM(), SUMX() and RELATED()</li>
+                                <li>• Practice: Layout your first dashboard</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="reveal glass-card p-6 rounded-2xl flex items-center gap-6">
-                        <div class="text-2xl font-black text-white/20 w-12 text-center">07</div>
-                        <div>
-                            <h4 class="font-bold">Interactive Dashboard</h4>
-                            <p class="text-slate-500 text-sm">Tạo Filter, Slicer, Tooltip và tối ưu trải nghiệm người dùng.</p>
+
+                    <!-- Session 04: Time Intelligence -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                        <div class="md:w-1/2 md:pr-16 md:text-right">
+                            <h4 class="text-2xl font-bold mb-3 uppercase tracking-wider">Session 4: Time Intelligence</h4>
+                            <ul class="text-slate-400 space-y-1 text-sm md:text-base">
+                                <li>• The role of the CALENDAR TABLE</li>
+                                <li>• Master the CALCULATE() function</li>
+                                <li>• Time Comparison & Running Totals techniques</li>
+                                <li>• Visualizing Time-based analytics</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-dot hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <div class="glass-card p-6 rounded-2xl inline-flex items-center gap-4 border-l-4 border-white/10">
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-history text-white text-xl"></i>
+                                </div>
+                                <span class="font-black text-3xl opacity-20">04</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="reveal glass-card p-6 rounded-2xl border-pb-yellow/40 bg-pb-yellow/10 flex items-center gap-6">
-                        <div class="text-3xl font-black text-pb-yellow w-12 text-center">08</div>
-                        <div class="flex-grow">
-                            <h4 class="font-bold text-pb-yellow uppercase">Final Project Showcase</h4>
-                            <p class="text-slate-300 text-sm">Báo cáo dự án thực tế & Nhận feedback chuyên sâu từ Sharers.</p>
+
+                    <!-- Session 05: Practice -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                        <div class="md:w-1/2 md:pr-16 md:text-right hidden md:block">
+                            <div class="glass-card p-6 rounded-2xl inline-flex items-center gap-4 border-r-4 border-white/10">
+                                <span class="font-black text-3xl opacity-20">05</span>
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-laptop-code text-white text-xl"></i>
+                                </div>
+                            </div>
                         </div>
-                        <i class="fas fa-trophy text-pb-yellow text-2xl"></i>
+                        <div class="roadmap-dot hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <h4 class="text-2xl font-bold mb-3 uppercase tracking-wider">Session 5: Wyler Sell Everything Dataset</h4>
+                            <p class="text-slate-400 text-sm md:text-base">Intensive group practice session using the real-world "Wyler Sell Everything" dataset to solidify your skills.</p>
+                        </div>
+                    </div>
+
+                    <!-- Session 06: Tooltips -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                        <div class="md:w-1/2 md:pr-16 md:text-right">
+                            <h4 class="text-2xl font-bold mb-3 uppercase tracking-wider">Session 6: All about Tooltips</h4>
+                            <ul class="text-slate-400 space-y-1 text-sm md:text-base">
+                                <li>• Standard & Report Tooltips setup</li>
+                                <li>• Introduction to Fields Parameter</li>
+                                <li>• Final Project Details & Prep Announcement</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-dot hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <div class="glass-card p-6 rounded-2xl inline-flex items-center gap-4 border-l-4 border-white/10">
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-mouse-pointer text-white text-xl"></i>
+                                </div>
+                                <span class="font-black text-3xl opacity-20">06</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Session 07: Instruction -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                        <div class="md:w-1/2 md:pr-16 md:text-right hidden md:block">
+                            <div class="glass-card p-6 rounded-2xl inline-flex items-center gap-4 border-r-4 border-white/10">
+                                <span class="font-black text-3xl opacity-20">07</span>
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-chalkboard-teacher text-white text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="roadmap-dot hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <h4 class="text-2xl font-bold mb-3 uppercase tracking-wider">Session 7: Final Project Guidance</h4>
+                            <p class="text-slate-400 text-sm md:text-base">Dedicated placeholder for Final Project Instruction. Get personal feedback and refine your graduation project.</p>
+                        </div>
+                    </div>
+
+                    <!-- Session 08: Showcase -->
+                    <div class="reveal flex flex-col md:flex-row items-center gap-8 md:gap-0 pt-10">
+                        <div class="md:w-1/2 md:pr-16 md:text-right">
+                            <h4 class="text-4xl font-black text-pb-yellow mb-4 uppercase italic tracking-tighter">Session 8: Graduation Day</h4>
+                            <p class="text-slate-100 text-lg leading-relaxed">Showcase your final project to peers and sharers. Celebrate your journey and receive your certificate!</p>
+                        </div>
+                        <div class="roadmap-dot hidden md:block scale-150 bg-pb-yellow shadow-[0_0_20px_#F2C811]"></div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <div class="glass-card p-8 rounded-[40px] bg-pb-yellow/20 border-pb-yellow/40 relative">
+                                <i class="fas fa-graduation-cap text-6xl text-pb-yellow"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sharers -->
+    <!-- Sharers Section -->
     <section id="sharers" class="py-32 bg-slate-900/40 relative">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-4xl md:text-5xl font-black mb-6">Gặp gỡ <span class="pb-yellow">Sharers</span></h2>
-                <p class="text-slate-400">Những người sẽ đồng hành và dẫn dắt bạn suốt hành trình</p>
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">Meet the <span class="pb-yellow">Sharers</span></h2>
+                <p class="text-slate-400">The sharers who will accompany and guide you throughout the journey</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 <!-- Khánh Lê -->
-                <div class="reveal glass-card p-10 rounded-[40px] flex flex-col items-center text-center">
-                    <div class="avatar-glow w-48 h-48 mb-8">
-                        <img src="Kale.jpg" alt="Khánh Lê" class="w-full h-full object-cover rounded-full border-4 border-slate-900 relative z-10 shadow-2xl">
+                <div class="reveal glass-card p-12 rounded-[50px] flex flex-col items-center text-center group">
+                    <div class="avatar-glow w-56 h-56 mb-8 transform group-hover:scale-105 transition">
+                        <img src="Picture_Kale.jpg" alt="Khánh Lê" class="w-full h-full object-cover rounded-full border-4 border-slate-800 relative z-10 shadow-2xl">
                     </div>
                     <h3 class="text-3xl font-black mb-2">Khánh Lê</h3>
-                    <p class="text-pb-yellow font-bold uppercase tracking-widest text-sm mb-6">Expert Sharer</p>
-                    <p class="text-slate-400 leading-relaxed italic">"Dữ liệu không chỉ là những con số khô khan, nó là câu chuyện nếu bạn biết cách lắng nghe."</p>
-                    <div class="mt-8 flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-pb-yellow hover:text-black transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-pb-yellow hover:text-black transition"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <p class="text-pb-yellow font-bold uppercase tracking-widest text-sm mb-6">Raw Material Planner at Avery Dennison</p>
+                    <p class="text-slate-400 leading-relaxed italic">"Visualization is key!"</p>
                 </div>
 
                 <!-- Minh Hiếu -->
-                <div class="reveal glass-card p-10 rounded-[40px] flex flex-col items-center text-center delay-200">
-                    <div class="avatar-glow w-48 h-48 mb-8">
-                        <img src="Picture_Anh Hiếu.jpg" alt="Minh Hiếu" class="w-full h-full object-cover rounded-full border-4 border-slate-900 relative z-10 shadow-2xl">
+                <div class="reveal glass-card p-12 rounded-[50px] flex flex-col items-center text-center group delay-200">
+                    <div class="avatar-glow w-56 h-56 mb-8 transform group-hover:scale-105 transition">
+                        <img src="Picture_Anh Hiếu.jpg" alt="Minh Hiếu" class="w-full h-full object-cover rounded-full border-4 border-slate-800 relative z-10 shadow-2xl">
                     </div>
                     <h3 class="text-3xl font-black mb-2">Minh Hiếu</h3>
-                    <p class="text-pb-yellow font-bold uppercase tracking-widest text-sm mb-6">Expert Sharer</p>
-                    <p class="text-slate-400 leading-relaxed italic">"Modeling là linh hồn của báo cáo. Hãy xây dựng một nền tảng vững chắc trước khi bắt đầu vẽ."</p>
-                    <div class="mt-8 flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-pb-yellow hover:text-black transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-pb-yellow hover:text-black transition"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <p class="text-pb-yellow font-bold uppercase tracking-widest text-sm mb-6">Data Analyst at The Lego Group</p>
+                    <p class="text-slate-400 leading-relaxed italic">"Modeling is the backbone of Power BI. Build a strong foundation to go further."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final -->
+    <!-- Final CTA -->
     <section class="py-32 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="reveal glass-card p-16 md:p-24 rounded-[60px] text-center relative z-10">
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-pb-yellow/20 rounded-full blur-[80px]"></div>
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="reveal glass-card p-12 md:p-20 rounded-[60px] text-center relative z-10 border-pb-yellow/20">
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-pb-yellow/10 rounded-full blur-[80px]"></div>
                 <h2 class="text-5xl md:text-6xl font-black mb-10 leading-tight">
-                    Trở thành người làm chủ <br>
-                    <span class="pb-yellow">Dữ Liệu Thế Hệ Mới</span>
+                    Ready for the <br>
+                    <span class="pb-yellow uppercase italic">Data-Driven Era?</span>
                 </h2>
-                <div class="flex flex-col items-center gap-6">
-                    <a href="https://forms.gle/mCUtToL1zLwbrPai6" target="_blank" class="px-12 py-6 bg-pb-yellow text-black rounded-3xl font-black text-2xl hover:scale-105 transition transform shadow-[0_15px_40px_rgba(242,200,17,0.4)]">
-                        BẮT ĐẦU NGAY BÂY GIỜ
+                <div class="flex flex-col items-center gap-8">
+                    <a href="https://forms.gle/mCUtToL1zLwbrPai6" target="_blank" class="px-12 py-6 bg-pb-yellow text-black rounded-3xl font-black text-2xl hover:scale-105 transition transform shadow-[0_20px_50px_rgba(242,200,17,0.4)] active:scale-95">
+                        REGISTER NOW
                     </a>
-                    <p class="text-slate-500 text-sm font-medium">Số lượng học viên giới hạn để đảm bảo chất lượng hướng dẫn.</p>
+                    <div class="flex items-center gap-4 text-slate-500 font-medium">
+                        <i class="fas fa-check-circle text-pb-yellow"></i> 8+1 practical sessions
+                        <i class="fas fa-check-circle text-pb-yellow"></i> 1:1 Support from Sharers
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 bg-[#0b0f1a] border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="flex flex-col items-center md:items-start gap-4">
-                <img src="Wyler_logo_no_background.png" alt="Wyler Logo" class="h-16 brightness-125">
-                <p class="text-slate-500 text-sm max-w-xs text-center md:text-left">
-                    Wyler in Uni - Kết nối sinh viên với tri thức thực chiến ngành Supply Chain & Data.
+    <footer class="py-20 bg-[#0b0f1a] border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex flex-col items-center md:items-start gap-6">
+                <img src="Wyler_logo_no_background.png" alt="Wyler Logo" class="h-16 brightness-125 transition hover:scale-105">
+                <p class="text-slate-500 text-sm max-w-xs text-center md:text-left leading-relaxed">
+                    Wyler in Uni - Connecting students with practical knowledge from top industry experts.
                 </p>
-            </div>
-            
-            <div class="flex flex-col items-center md:items-end gap-6">
-                <div class="flex gap-10 text-xl">
-                    <a href="https://www.facebook.com/wylerinuni.supplychain" target="_blank" class="text-slate-500 hover:text-pb-yellow transition"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-slate-500 hover:text-pb-yellow transition"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-slate-500 hover:text-pb-yellow transition"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="text-slate-600 text-xs tracking-widest uppercase">
-                    © 2024 Power BI Chain • Wyler in Uni
-                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Reveal animation on scroll
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+        // Intersection Observer for scroll reveal
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
                 }
-            }
-        }
+            });
+        }, revealOptions);
 
-        window.addEventListener("scroll", reveal);
-        // Initial check
-        reveal();
+        document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-        // Smooth scrolling for navigation
+        // Smooth scroll for anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     e.preventDefault();
                     window.scrollTo({
-                        top: target.offsetTop - 100,
+                        top: target.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
